@@ -49,6 +49,8 @@ class HomeController extends Controller
         $user = [];
 
         foreach($userlist as $u){
+
+            
             if($u['id'] == $id ){
                 $user = $u;
                 break;
@@ -69,9 +71,15 @@ class HomeController extends Controller
 
         foreach($userlist as $u){
             if($u['id'] == $id ){
+                // echo $u['email'];
+                // echo '<br>';
+                // echo $req->email;
                 $u['email'] = $req->email;
+                $u['name'] = $req->password;
+                $u['name'] = $req->password;
                 break;
             }
+            //echo $u['id'];
         }
 
         return redirect('/home/userlist');
@@ -84,12 +92,15 @@ class HomeController extends Controller
         return view('home.list')->with('list', $userlist);
     }
 
+    
     public function getUserlist (){
 
-        return [
-                ['id'=>1, 'name'=>'ttt', 'email'=> 'ttt@aiub.edu', 'password'=>'123'],
-                ['id'=>2, 'name'=>'abc', 'email'=> 'abc@aiub.edu', 'password'=>'456'],
-                ['id'=>3, 'name'=>'xyz', 'email'=> 'xyz@aiub.edu', 'password'=>'789']
-            ];
+        $userArray = [
+            ['id'=>1, 'name'=>'ttt', 'email'=> 'ttt@aiub.edu', 'password'=>'123'],
+            ['id'=>2, 'name'=>'abc', 'email'=> 'abc@aiub.edu', 'password'=>'456'],
+            ['id'=>3, 'name'=>'xyz', 'email'=> 'xyz@aiub.edu', 'password'=>'789']
+        ];
+
+        return $userArray;
     }
 }
