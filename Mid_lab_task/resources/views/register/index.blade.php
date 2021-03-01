@@ -15,20 +15,38 @@
 					<td><input type="text" name="email"></td>
 				</tr>
                 <tr>
-					<td>Name: </td>
-					<td><input type="text" name="name"></td>
+					<td>User Name: </td>
+					<td><input type="text" name="user_name"></td>
 				</tr>
 				<tr>
 					<td>Password: </td>
 					<td><input type="password" name="password"></td>
 				</tr>
-				
-				<!-- <tr>
-					<td>Role: </td>
-					<td><input type="text" name="role"></td>
-				</tr> -->
-
-                <tr>
+				<tr>
+					<td>Confirm Password: </td>
+					<td><input type="password" name="confirm_password"></td>
+				</tr>
+				<tr>
+					<td>Full Name: </td>
+					<td><input type="text" name="full_name"></td>
+				</tr>
+				<tr>
+					<td>Phone: </td>
+					<td><input type="text" name="phone"></td>
+				</tr>
+				<tr>
+					<td>Country: </td>
+					<td><input type="text" name="country"></td>
+				</tr>
+				<tr>
+					<td>City: </td>
+					<td><input type="text" name="city"></td>
+				</tr>
+				<tr>
+					<td>Address: </td>
+					<td><input type="text" name="address"></td>
+				</tr>
+				<tr>
 					<td>Role</td>
 					<td>
 						<select name='role'>
@@ -41,7 +59,7 @@
                             
 						</select>
 					</td>
-				</tr>
+				</tr>	               
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit"></td>

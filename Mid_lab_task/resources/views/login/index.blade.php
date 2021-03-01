@@ -26,7 +26,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td><a href="/register">Register as a new user!!!</a></td>
+					<td><input type='button' onclick="location.href='/register';" value="Sign up"></input></td>
 				</tr>
 			</table>
 		</fieldset>
