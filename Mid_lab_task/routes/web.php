@@ -17,3 +17,5 @@ Route::get('/home/adminIndex', 'HomeController@accountantIndex');
 Route::get('/home/customerIndex', 'HomeController@partnerIndex');
 Route::get('/home/adminIndex', 'HomeController@salesIndex');
 Route::get('/home/customerIndex', 'HomeController@vendorIndex');
+
+//Route::get('/home/customerIndex', 'HomeController@vendorIndex');
