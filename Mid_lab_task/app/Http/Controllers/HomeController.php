@@ -11,6 +11,7 @@ class HomeController extends Controller
     }
 
     public function adminIndex(){
+        //echo "test";
         return view('home.adminIndex');
     }
     public function customerIndex(){
@@ -28,5 +29,13 @@ class HomeController extends Controller
     public function vendorIndex(){
         return view('home.vendorIndex');
     }
+
+    public function store(){
+        $validation->validate();
+
+
+    }
+
+
 
 }

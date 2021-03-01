@@ -20,14 +20,29 @@
 					<td><input type="password" name="password"></td>
 				</tr>
 				<tr>
+				<td></td>
 					<td><input type="submit" name="submit" value="Submit"></td>
 					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><a href="/register">Register as a new user!!!</a></td>
 				</tr>
 			</table>
 		</fieldset>
 	</form>
 
+	<br>
+
+	
+
+	<br>
+
     {{session('msg')}}
+
+	@foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
 
 </body>
 </html>

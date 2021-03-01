@@ -6,16 +6,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/register', function () {
+    return view('register.index');
+});
 
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@verify');
 
-
-Route::get('/home/adminIndex', 'HomeController@adminIndex');
-Route::get('/home/customerIndex', 'HomeController@customerIndex');
-Route::get('/home/adminIndex', 'HomeController@accountantIndex');
-Route::get('/home/customerIndex', 'HomeController@partnerIndex');
-Route::get('/home/adminIndex', 'HomeController@salesIndex');
-Route::get('/home/customerIndex', 'HomeController@vendorIndex');
+Route::get('/logout', 'LogoutController@index');
+Route::get('/admin', 'HomeController@adminIndex')->name('home.adminIndex');
+Route::get('/customerIndex', 'HomeController@customerIndex')->name('home.customerIndex');
+Route::get('/adminIndex', 'HomeController@accountantIndex')->name('home.accountantIndex');
+Route::get('/customerIndex', 'HomeController@partnerIndex')->name('home.partnerIndex');
+Route::get('/adminIndex', 'HomeController@salesIndex')->name('home.salesIndex');
+Route::get('/customerIndex', 'HomeController@vendorIndex')->name('home.vendorIndex');
 
 //Route::get('/home/customerIndex', 'HomeController@vendorIndex');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UserRequest;
 
 class LoginController extends Controller
 {
@@ -11,7 +12,9 @@ class LoginController extends Controller
         return view('login.index');
     }
 
-    public function verify(Request $req){
+    public function verify(UserRequest $req){
+
+        $validated = $req->validated();
 
         $user = DB::table('user')
                     ->where('password', $req->password)
@@ -19,7 +22,7 @@ class LoginController extends Controller
                     ->get();
 
         if($req->email == "" || $req->password == ""){
-           $req->session()->flash('msg', 'null email or password...');
+           $req->session()->flash('msg', 'Email and username cannot be empty');
            return redirect('/login');
 
         }elseif(count($user) > 0 ){
@@ -30,20 +33,19 @@ class LoginController extends Controller
             $req->session()->put('name', $user->name);
 
             if($user->role == "Admin"){
-                return redirect('/home/adminIndex');
-
+                return redirect('/admin');
             }
             else if($user->role == "Customer"){
-                return redirect('/home/customerIndex');
+                return redirect('/customerIndex');
             }
             else if($user->role == "Accountant"){
-                return redirect('/home/accountantIndex');
+                return redirect('/accountantIndex');
             }
             else if($user->role == "Sales and Marketing"){
-                return redirect('/home/salesIndex');
+                return redirect('/salesIndex');
             }
             else if($user->role == "Business Partner"){
-                return redirect('/home/partnerIndex');
+                return redirect('/partnerIndex');
             }
             else{
                 return redirect('/home');
