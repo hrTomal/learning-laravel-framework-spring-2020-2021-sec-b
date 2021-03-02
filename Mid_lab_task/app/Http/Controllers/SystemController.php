@@ -15,7 +15,19 @@ class SystemController extends Controller
         return view('system.sales');
     }
     public function physical_index(){
-        return view('system.physical');
+
+        $date_7 = \Carbon\Carbon::today()->subDays(7);
+
+        $physical_products_7 = Physical_channel::where('sell_date','>=',$date_7)->get();
+        $physical_counter_7 = count($physical_products_7);
+
+        $date = \Carbon\Carbon::today();
+        $physical_products = Physical_channel::where('sell_date','>=',$date)->get();
+        $physical_counter = count($physical_products);
+
+        return view('system.physical')
+                    ->with('data',['physical_counter_7'=>$physical_counter_7,
+                                            'physical_counter'=>$physical_counter]);
     }
     public function social_index(){
         return view('system.social');
@@ -62,5 +74,23 @@ class SystemController extends Controller
 
     }
 
+    public function store(Request $req){
+        $product = new Physical_channel();
+        $product->product_id        = $req->product_id;
+        $product->product_name      = $req->product_name;
+        $product->sell_date         = Carbon::today()->toDateString();
+        $product->customer_name     = $req->customer_name;
+        $product->address           = $req->address;
+        $product->phone             = $req->phone;
+        $product->unit_price        = $req->unit_price;
+        $product->quantity          = $req->quantity;
+        $product->total_price        = (($req->unit_price)*($req->quantity));
+
+        $product->save();
+
+        $req->session()->put('stored', "Data stored");
+        
+        return redirect()->route('system.physical_store');
+    }
         
 }

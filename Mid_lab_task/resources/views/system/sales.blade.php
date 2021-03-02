@@ -4,7 +4,18 @@
 <h1>Welcome To Sales Dashboard</h1>
 @endsection
 
+@section('nav_bar')
+<br>
+<button onclick="location.href='/system/sales/physical_store';"> Physical store </button>
+<button onclick="location.href='/system/sales/social_media';"> Social media </button>
+<button onclick="location.href='/system/sales/ecommerce';"> Ecommerce </button>
+<button onclick="location.href='/logout';"> Logout </button>
+<br><br>
+@endsection
+
 @section('main_content')
+<fieldset>
+<legend>Dashboard:</legend>
     <table border='1'>
         <tr>
             <td>Channel Name</td>
@@ -27,9 +38,6 @@
             <td>{{ $data['ecommerce_counter_7'] }}</td>
         </tr>
     </table>
-<br>
-<button onclick="location.href='/system/sales/physical_store';"> Physical store </button>
-<button onclick="location.href='/system/sales/social_media';"> Social media </button>
-<button onclick="location.href='/system/sales/ecommerce';"> Ecommerce </button>
-<br><br><br><br>
+    </fieldset>
+
 @endsection

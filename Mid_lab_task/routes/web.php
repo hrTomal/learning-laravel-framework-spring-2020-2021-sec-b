@@ -26,6 +26,8 @@ Route::get('/register', 'RegistrationController@index');
 
 Route::get('system/sales', 'SystemController@sellCount')->name('system.sales');
 
-Route::get('system/sales/physical_store', 'SystemController@physical_index');
+Route::get('system/sales/physical_store', 'SystemController@physical_index')->name('system.physical_store');
+Route::post('system/sales/physical_store', 'SystemController@store');
+
 Route::get('system/sales/social_media', 'SystemController@social_index');
 Route::get('system/sales/ecommerce', 'SystemController@ecommerce_index');
