@@ -24,7 +24,7 @@ class RegRequests extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|min:10|max:50|bail',
+            'email' => 'required|email|unique:user|min:10|max:50|bail',
             'password_confirmation' => 'required|max:20|min:8|alpha_num',
             'password' => 'required|max:20|min:8|alpha_num|confirmed',
             'user_name' => 'required|max:30',
