@@ -8,5 +8,5 @@ class Product extends Model
 {
     protected $table = 'products';
     public $timestamps = false;
-    //protected $primaryKey = 'email';
+    protected $primaryKey = 'id';
 }

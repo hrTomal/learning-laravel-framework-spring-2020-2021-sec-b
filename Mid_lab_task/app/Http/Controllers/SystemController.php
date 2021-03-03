@@ -41,11 +41,18 @@ class SystemController extends Controller
         $available_product = DB::table('products')->where('status', 'available')->get();
         $available_product_counter = count($available_product);
         
-        $upcomming_product = DB::table('products')->where('status', 'upcoming')->get();
+        $upcomming_product = DB::table('products')->where('status', 'upcomming')->get();
         $upcomming_product_counter = count($upcomming_product);
 
         return view('system.product')->with('data',['available_product_counter'=>$available_product_counter,
                                                         'upcomming_product_counter'=>$upcomming_product_counter]);
+    }
+
+    public function available_product_index(){
+        
+        $productlist = Product::all();
+        
+        return view('system.availableProduct')->with('list', $productlist);
     }
 
     public function sellCount(){
@@ -103,6 +110,14 @@ class SystemController extends Controller
         $req->session()->put('stored', "Data stored");
         
         return redirect()->route('system.physical_store');
+    }
+
+    public function product_edit($id){
+
+        $product = Product::find($id);
+
+        return view('product.edit')->with('product', $product);
+
     }
         
 }
