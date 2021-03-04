@@ -50,7 +50,13 @@ class SystemController extends Controller
 
     public function available_product_index(){
         
-        $productlist = Product::all();
+        $productlist = Product::paginate(10);
+        
+        return view('system.availableProduct')->with('list', $productlist);
+    }
+    public function available_product_quantity_sort(){
+        
+        $productlist = Product::orderBy('id')->paginate(10);
         
         return view('system.availableProduct')->with('list', $productlist);
     }
@@ -117,6 +123,38 @@ class SystemController extends Controller
         $product = Product::find($id);
 
         return view('product.edit')->with('product', $product);
+
+    }
+
+    public function product_update($id, Request $req){
+
+        $product = Product::find($id);
+
+        $product->id                = $req->id;
+        $product->product_name      = $req->product_name;
+        $product->category          = $req->category;
+        $product->quantity          = $req->quantity;
+        $product->unit_price        = $req->unit_price;
+        $product->last_updated      = Carbon::now();
+        $product->status            = $req->status;
+        $product->save();
+        return redirect()->route('system.available_products');
+
+    }
+
+    public function product_delete($id){
+
+        $product = Product::find($id);
+
+        return view('product.delete')->with('product', $product);
+
+    }
+
+    public function product_destroy($id){
+
+        $product = Product::destroy($id);
+
+        return redirect()->route('system.available_products');
 
     }
         

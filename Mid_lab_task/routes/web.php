@@ -33,7 +33,12 @@ Route::get('system/sales/social_media', 'SystemController@social_index');
 Route::get('system/sales/ecommerce', 'SystemController@ecommerce_index');
 
 Route::get('system/product_management', 'SystemController@product_index');
-Route::get('system/product_management/available_products', 'SystemController@available_product_index');
-Route::get('system/product_management/available_products/edit/{id}', 'SystemController@product_edit');
+Route::get('system/product_management/available_products', 'SystemController@available_product_index')->name('system.available_products');
+Route::get('system/product_management/available_products', 'SystemController@available_product_quantity_sort')->name('system.available_product_quantity_sort');
+Route::get('system/product_management/available_products/edit/{id}', 'SystemController@product_edit')->name('product.edit');
+Route::post('system/product_management/available_products/edit/{id}', 'SystemController@product_update')->name('product.update');
+
+Route::get('system/product_management/available_products/delete/{id}', 'SystemController@product_delete')->name('product.delete');
+Route::post('system/product_management/available_products/delete/{id}', 'SystemController@product_destroy')->name('product.destroy');
 
 
