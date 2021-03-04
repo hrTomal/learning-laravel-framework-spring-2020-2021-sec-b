@@ -126,7 +126,9 @@ class SystemController extends Controller
 
     }
 
-    public function product_update($id, Request $req){
+    public function product_update($id, ProductRequest $req){
+
+        $validated = $req->validated();
 
         $product = Product::find($id);
 

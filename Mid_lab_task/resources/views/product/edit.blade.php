@@ -27,7 +27,12 @@
 				</tr>
                 <tr>
 					<td>Status: </td>
-                    <td><input type="text" name="status" value="{{ $product['status'] }}" ></td>					    
+                    <td> 
+						<select name='status'>
+							<option value="available"> Available </option>
+							<option value="upcomming" > Upcomming </option>
+						</select>	
+					</td>					    
 				</tr>
                 <tr>
                 <tr>
