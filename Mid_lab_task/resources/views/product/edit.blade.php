@@ -15,7 +15,13 @@
 				</tr>
                 <tr>
 					<td>Category: </td>
-					<td><input type="text" name="category" value="{{ $product['category'] }}" ></td>
+					<td>
+						<select name='category'>
+							<option value="medical" @if($product['category'] == 'medical') selected @endif> Medical </option>
+							<option value="stationary" @if($product['category'] == 'stationary') selected @endif> Stationary </option>
+							<option value="grocery" @if($product['category'] == 'grocery') selected @endif> Grocery </option>
+						</select>
+					</td>
 				</tr>
                 <tr>
 					<td>Quantity: </td>

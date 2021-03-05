@@ -49,10 +49,17 @@ class SystemController extends Controller
     }
 
     public function available_product_index(){
-        
-        $productlist = Product::paginate(10);
-        
+
+        //$productlist = DB::table('products')->where('status', 'available')->paginate(10)->get();
+
         return view('system.availableProduct')->with('list', $productlist);
+    }
+    public function upcomming_product_index(){
+
+        $productlist = DB::table('products')->where('status', 'upcomming')->paginate(10);
+                
+        return view('system.upcommingProduct')->with('list', $productlist);
+        
     }
     public function available_product_quantity_sort(){
         
