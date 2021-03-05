@@ -9,6 +9,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
+//use Illuminate\Http\Requests\ProductRequest;
 
 class SystemController extends Controller
 {
@@ -162,6 +164,28 @@ class SystemController extends Controller
 
         $product = Product::destroy($id);
 
+        return redirect()->route('system.available_products');
+
+    }
+
+    public function add_product_index(){
+        return view('product.add');
+    }
+
+    public function store_product(ProductRequest $req){
+
+        $validated = $req->validated();
+
+        $product = new Product();
+
+        $product->id                = $req->id;
+        $product->product_name      = $req->product_name;
+        $product->category          = $req->category;
+        $product->quantity          = $req->quantity;
+        $product->unit_price        = $req->unit_price;
+        $product->last_updated      = Carbon::now();
+        $product->status            = $req->status;
+        $product->save();
         return redirect()->route('system.available_products');
 
     }

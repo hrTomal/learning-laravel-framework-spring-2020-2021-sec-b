@@ -42,3 +42,6 @@ Route::get('system/product_management/available_products/delete/{id}', 'SystemCo
 Route::post('system/product_management/available_products/delete/{id}', 'SystemController@product_destroy')->name('product.destroy');
 
 Route::get('system/product_management/upcomming_products', 'SystemController@upcomming_product_index')->name('system.upcomming_products');
+
+Route::get('system/product_management/add_products', 'SystemController@add_product_index')->name('system.add_product_index');
+Route::post('system/product_management/add_products', 'SystemController@store_product')->name('system.store_product');

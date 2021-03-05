@@ -1,9 +1,6 @@
 @extends('layout.nav_bar')
 
 @section('main_content')
-
-    
-
     <fieldset>
     <legend>Available Products</legend>
         <table border="1">
