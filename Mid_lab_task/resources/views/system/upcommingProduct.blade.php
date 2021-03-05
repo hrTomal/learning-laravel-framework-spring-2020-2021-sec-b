@@ -26,6 +26,7 @@
                     <td>
                         <a href="{{ route('product.edit', [$list[$i]['id']]) }}">Edit</a> |
                         <a href="{{ route('product.delete', [$list[$i]['id']]) }}">Delete</a> |
+                        <a href="">Details</a> |
                     </td>
                 </tr>
                 @endfor

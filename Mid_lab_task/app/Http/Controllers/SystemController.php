@@ -49,24 +49,23 @@ class SystemController extends Controller
     }
 
     public function available_product_index(){
-
-        //$productlist = DB::table('products')->where('status', 'available')->paginate(10)->get();
-
+        $productlist = Product::where('status', 'available')->paginate(10);
+        
         return view('system.availableProduct')->with('list', $productlist);
     }
     public function upcomming_product_index(){
 
-        $productlist = DB::table('products')->where('status', 'upcomming')->paginate(10);
-                
+        $productlist = Product::where('status', 'upcomming')->paginate(10);
+
         return view('system.upcommingProduct')->with('list', $productlist);
         
     }
-    public function available_product_quantity_sort(){
+    // public function available_product_quantity_sort(){
         
-        $productlist = Product::orderBy('id')->paginate(10);
+    //     $productlist = Product::orderBy('id')->paginate(10);
         
-        return view('system.availableProduct')->with('list', $productlist);
-    }
+    //     return view('system.availableProduct')->with('list', $productlist);
+    // }
 
     public function sellCount(){
 

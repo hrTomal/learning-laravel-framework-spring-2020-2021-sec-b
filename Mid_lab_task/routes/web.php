@@ -34,7 +34,7 @@ Route::get('system/sales/ecommerce', 'SystemController@ecommerce_index');
 
 Route::get('system/product_management', 'SystemController@product_index');
 Route::get('system/product_management/available_products', 'SystemController@available_product_index')->name('system.available_products');
-Route::get('system/product_management/available_products', 'SystemController@available_product_quantity_sort')->name('system.available_product_quantity_sort');
+
 Route::get('system/product_management/available_products/edit/{id}', 'SystemController@product_edit')->name('product.edit');
 Route::post('system/product_management/available_products/edit/{id}', 'SystemController@product_update')->name('product.update');
 

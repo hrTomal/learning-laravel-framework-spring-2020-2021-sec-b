@@ -2,7 +2,7 @@
 
 @section('main_content')
 
-    <button onclick="location.href='{{ route('system.available_product_quantity_sort') }}'"> Sort By Quantity </button>
+    
 
     <fieldset>
     <legend>Available Products</legend>
